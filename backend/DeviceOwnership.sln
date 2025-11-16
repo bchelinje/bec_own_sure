@@ -1,0 +1,43 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.API", "src\DeviceOwnership.API\DeviceOwnership.API.csproj", "{API-GUID-HERE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.Core", "src\DeviceOwnership.Core\DeviceOwnership.Core.csproj", "{CORE-GUID-HERE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.Infrastructure", "src\DeviceOwnership.Infrastructure\DeviceOwnership.Infrastructure.csproj", "{INFRA-GUID-HERE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.Application", "src\DeviceOwnership.Application\DeviceOwnership.Application.csproj", "{APP-GUID-HERE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.Tests", "tests\DeviceOwnership.Tests\DeviceOwnership.Tests.csproj", "{TEST-GUID-HERE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{API-GUID-HERE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{API-GUID-HERE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{API-GUID-HERE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{API-GUID-HERE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CORE-GUID-HERE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CORE-GUID-HERE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CORE-GUID-HERE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CORE-GUID-HERE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{INFRA-GUID-HERE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{INFRA-GUID-HERE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{INFRA-GUID-HERE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{INFRA-GUID-HERE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{APP-GUID-HERE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{APP-GUID-HERE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{APP-GUID-HERE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{APP-GUID-HERE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{TEST-GUID-HERE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{TEST-GUID-HERE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{TEST-GUID-HERE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{TEST-GUID-HERE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
