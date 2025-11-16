@@ -217,3 +217,6 @@ The platform supports global rollout with:
 To create a secure global network where individuals, communities, and authorities work together to protect valuable items, verify ownership, and eliminate the circulation of stolen goods.
 
 ---
+
+You said:
+what about market place
