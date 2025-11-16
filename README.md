@@ -1,9 +1,14 @@
-# bec_own_sure
+# 📘 Device Ownership & Anti-Theft Platform
 
-⭐ ASP.NET Core + PostgreSQL + Angular + Flutter + Azure (minimal services)
-⭐ 1. NestJS + PostgreSQL + Angular + Flutter + AWS — Is it a good stack?
+**Recommended Stack:** ⭐ ASP.NET Core + PostgreSQL + Angular + Flutter + Azure (minimal services)
 
-# 📘 Project README – Device Ownership & Anti-Theft Platform
+[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
+[![Angular](https://img.shields.io/badge/Angular-17-DD0031)](https://angular.io/)
+[![Flutter](https://img.shields.io/badge/Flutter-3.16-02569B)](https://flutter.dev/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791)](https://www.postgresql.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+# 🚀 Device Ownership & Anti-Theft Platform
 
 A modern, secure, multi-platform solution for registering devices, verifying ownership, preventing the sale of stolen goods, and transferring device ownership globally.
 
@@ -218,5 +223,153 @@ To create a secure global network where individuals, communities, and authoritie
 
 ---
 
-You said:
-what about market place
+# 📚 Documentation
+
+Comprehensive documentation has been created to help you understand, develop, and deploy this platform:
+
+## Architecture & Design
+- **[System Architecture](docs/ARCHITECTURE.md)** - Complete system architecture with diagrams, security design, data flows, and deployment architecture
+- **[Database Schema](docs/DATABASE_SCHEMA.md)** - Full PostgreSQL database schema with tables, relationships, indexes, and optimization strategies
+- **[Authentication Flows](docs/AUTHENTICATION_FLOWS.md)** - OAuth 2.0/OpenID Connect flows using OpenIddict for all user types
+- **[API Endpoints](docs/API_ENDPOINTS.md)** - Complete REST API specification with all endpoints, request/response formats, and examples
+
+## Development
+- **[Project Structure](docs/PROJECT_STRUCTURE.md)** - Detailed folder structure for backend (ASP.NET Core), frontend (Angular), and mobile (Flutter)
+- **[Development Guide](docs/DEVELOPMENT_GUIDE.md)** - Setup instructions, coding patterns, testing strategies, and best practices
+- **[Deployment Guide](docs/DEPLOYMENT_GUIDE.md)** - Azure deployment, CI/CD pipelines, monitoring, scaling, and production best practices
+
+## Quick Links
+- **Backend**: `/backend` - ASP.NET Core 8 Web API with Clean Architecture
+- **Frontend**: `/frontend-web` - Angular 17 web application
+- **Mobile**: `/mobile-app` - Flutter cross-platform mobile app
+- **Database**: `/database` - PostgreSQL schema and migration scripts
+- **Infrastructure**: `/infrastructure` - Azure ARM templates, Bicep, and Docker configurations
+
+---
+
+# 🚀 Quick Start
+
+## Prerequisites
+- .NET 8 SDK
+- Node.js 20+
+- Flutter 3.16+
+- PostgreSQL 16+
+- Redis (for caching)
+
+## Backend Setup
+```bash
+cd backend
+dotnet restore
+dotnet ef database update -p src/DeviceOwnership.Infrastructure -s src/DeviceOwnership.API
+dotnet run --project src/DeviceOwnership.API
+```
+
+## Frontend Setup
+```bash
+cd frontend-web
+npm install
+ng serve
+```
+
+## Mobile Setup
+```bash
+cd mobile-app
+flutter pub get
+flutter run
+```
+
+For detailed setup instructions, see the [Development Guide](docs/DEVELOPMENT_GUIDE.md).
+
+---
+
+# 🏗️ Technology Stack
+
+## Backend
+- **Framework**: ASP.NET Core 8.0
+- **Authentication**: OpenIddict (OAuth 2.0 / OpenID Connect)
+- **Database**: PostgreSQL 16
+- **ORM**: Entity Framework Core 8
+- **Caching**: Redis
+- **Storage**: Azure Blob Storage
+- **Secrets**: Azure Key Vault
+- **Email**: SendGrid
+- **SMS**: Twilio
+- **Payments**: Stripe
+
+## Frontend
+- **Framework**: Angular 17
+- **State Management**: RxJS
+- **UI**: Tailwind CSS
+- **OAuth Client**: angular-oauth2-oidc
+- **i18n**: ngx-translate
+
+## Mobile
+- **Framework**: Flutter 3.16
+- **State Management**: flutter_bloc
+- **HTTP Client**: dio
+- **Local Storage**: hive
+- **Secure Storage**: flutter_secure_storage
+- **Push Notifications**: firebase_messaging
+
+## Infrastructure
+- **Cloud**: Azure
+- **CI/CD**: GitHub Actions
+- **Monitoring**: Application Insights
+- **Container**: Docker
+- **IaC**: Bicep / Terraform
+
+---
+
+# 💡 Key Features Explained
+
+## Marketplace
+The platform includes a trusted second-hand marketplace where:
+- Only verified device owners can list items for sale
+- Buyers can see complete ownership history
+- All listings are verified against the theft database
+- Automatic ownership transfer upon purchase
+- Escrow payment system for security
+- Rating and review system for buyers/sellers
+- Protection against stolen goods
+
+---
+
+# 📊 Project Status
+
+- ✅ Architecture Design Complete
+- ✅ Database Schema Complete
+- ✅ API Specification Complete
+- ✅ Authentication Flow Design Complete
+- ⏳ Backend Implementation (In Progress)
+- ⏳ Frontend Implementation (Planned)
+- ⏳ Mobile App Implementation (Planned)
+- ⏳ Testing (Planned)
+- ⏳ Deployment (Planned)
+
+---
+
+# 🤝 Contributing
+
+We welcome contributions! Please read our [Development Guide](docs/DEVELOPMENT_GUIDE.md) for:
+- Code style guidelines
+- Branch naming conventions
+- Pull request process
+- Testing requirements
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+# 📞 Contact & Support
+
+- **Issues**: [GitHub Issues](https://github.com/your-org/device-ownership-platform/issues)
+- **Email**: support@deviceownership.com
+- **Documentation**: [Full Documentation](docs/)
+
+---
+
+**Built with ❤️ for a safer second-hand market**
