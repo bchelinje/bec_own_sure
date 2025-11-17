@@ -10,12 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Configure Serilog
 builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration)
-    .ReadFrom.Services(services)
     .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .WriteTo.ApplicationInsights(
-        services.GetRequiredService<Microsoft.ApplicationInsights.TelemetryClient>(),
-        Microsoft.ApplicationInsights.Extensibility.TelemetryConverter.Traces));
+    .WriteTo.Console());
 
 // Add services to the container
 builder.Services.AddControllers();
@@ -74,12 +70,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// Application Insights
-builder.Services.AddApplicationInsightsTelemetry(options =>
-{
-    options.ConnectionString = builder.Configuration["ApplicationInsights:ConnectionString"];
-});
-
 // Custom application services
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -87,20 +77,17 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 // CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowWebApp", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins(builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>())
+        policy.AllowAnyOrigin()
             .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials();
+            .AllowAnyHeader();
     });
 });
 
 // Health checks
 builder.Services.AddHealthChecks()
-    .AddDbContextCheck<ApplicationDbContext>()
-    .AddRedis(builder.Configuration.GetConnectionString("Redis")!)
-    .AddAzureBlobStorage(builder.Configuration.GetConnectionString("BlobStorage")!);
+    .AddDbContextCheck<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -125,7 +112,7 @@ else
 app.UseHttpsRedirection();
 app.UseSerilogRequestLogging();
 
-app.UseCors("AllowWebApp");
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
