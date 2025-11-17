@@ -22,6 +22,7 @@
     <PackageReference Include="Twilio" Version="6.16.1" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="StackExchange.Redis" Version="2.7.10" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.11" />
     <PackageReference Include="OpenIddict.AspNetCore" Version="5.1.0" />
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="5.1.0" />
   </ItemGroup>
