@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.Infrastruct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.Application", "src\DeviceOwnership.Application\DeviceOwnership.Application.csproj", "{APP-GUID-HERE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceOwnership.Tests", "tests\DeviceOwnership.Tests\DeviceOwnership.Tests.csproj", "{TEST-GUID-HERE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,9 +33,5 @@ Global
 		{APP-GUID-HERE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{APP-GUID-HERE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{APP-GUID-HERE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{TEST-GUID-HERE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{TEST-GUID-HERE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{TEST-GUID-HERE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{TEST-GUID-HERE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
