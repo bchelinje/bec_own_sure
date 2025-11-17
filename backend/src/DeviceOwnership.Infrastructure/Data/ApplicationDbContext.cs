@@ -115,6 +115,18 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey<MarketplaceListing>(m => m.DeviceId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        modelBuilder.Entity<MarketplaceListing>()
+            .HasOne(m => m.Seller)
+            .WithMany()
+            .HasForeignKey(m => m.SellerId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<MarketplaceListing>()
+            .HasOne(m => m.Buyer)
+            .WithMany()
+            .HasForeignKey(m => m.BuyerId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         modelBuilder.Entity<Subscription>()
             .HasOne(s => s.User)
             .WithOne(u => u.Subscription)
