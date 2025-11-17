@@ -66,8 +66,6 @@ public static class ServiceCollectionExtensions
                     .SetRefreshTokenLifetime(TimeSpan.FromDays(7))
                     .SetIdentityTokenLifetime(TimeSpan.FromHours(1));
 
-                options.UseRollingRefreshTokens();
-
                 options.AddDevelopmentEncryptionCertificate()
                     .AddDevelopmentSigningCertificate();
 
