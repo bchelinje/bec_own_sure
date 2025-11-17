@@ -1,4 +1,3 @@
-using DeviceOwnership.API.Extensions;
 using DeviceOwnership.Application.Extensions;
 using DeviceOwnership.Infrastructure.Extensions;
 using DeviceOwnership.Infrastructure.Data;
