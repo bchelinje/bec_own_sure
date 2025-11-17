@@ -24,6 +24,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IDeviceRepository, DeviceRepository>();
+        services.AddScoped<IMarketplaceRepository, MarketplaceRepository>();
 
         // Services
         services.AddSingleton<IEncryptionService>(sp =>

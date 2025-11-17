@@ -2,6 +2,9 @@ using DeviceOwnership.Application.Extensions;
 using DeviceOwnership.Infrastructure.Extensions;
 using DeviceOwnership.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -72,6 +75,29 @@ builder.Services.AddSwaggerGen(options =>
 // Custom application services
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
+// JWT Authentication
+var jwtSecret = builder.Configuration["Jwt:Secret"] ?? "dev-jwt-secret-key-min-32-chars-long!";
+var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "DeviceOwnershipAPI";
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtIssuer,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecret))
+    };
+});
 
 // CORS
 builder.Services.AddCors(options =>
