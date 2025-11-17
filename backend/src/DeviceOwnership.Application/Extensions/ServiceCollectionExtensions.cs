@@ -18,6 +18,7 @@ public static class ServiceCollectionExtensions
         // Application Services
         services.AddScoped<IDeviceService, DeviceService>();
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IPaymentService, PaymentService>();
 
         return services;
     }

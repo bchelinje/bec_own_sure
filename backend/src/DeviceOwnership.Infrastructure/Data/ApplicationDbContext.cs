@@ -23,6 +23,9 @@ public class ApplicationDbContext : DbContext
     public DbSet<PoliceProfile> PoliceProfiles { get; set; } = null!;
     public DbSet<BusinessProfile> BusinessProfiles { get; set; } = null!;
     public DbSet<PoliceReport> PoliceReports { get; set; } = null!;
+    public DbSet<Transaction> Transactions { get; set; } = null!;
+    public DbSet<Order> Orders { get; set; } = null!;
+    public DbSet<Escrow> Escrows { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -143,6 +146,47 @@ public class ApplicationDbContext : DbContext
             .HasOne(b => b.User)
             .WithOne(u => u.BusinessProfile)
             .HasForeignKey<BusinessProfile>(b => b.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Payment entity configurations
+        modelBuilder.Entity<Transaction>()
+            .Property(t => t.Type)
+            .HasConversion<string>();
+
+        modelBuilder.Entity<Transaction>()
+            .Property(t => t.Status)
+            .HasConversion<string>();
+
+        modelBuilder.Entity<Order>()
+            .Property(o => o.Status)
+            .HasConversion<string>();
+
+        modelBuilder.Entity<Order>()
+            .HasOne(o => o.Buyer)
+            .WithMany()
+            .HasForeignKey(o => o.BuyerId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Order>()
+            .HasOne(o => o.Seller)
+            .WithMany()
+            .HasForeignKey(o => o.SellerId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Order>()
+            .HasOne(o => o.Listing)
+            .WithMany()
+            .HasForeignKey(o => o.ListingId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Escrow>()
+            .Property(e => e.Status)
+            .HasConversion<string>();
+
+        modelBuilder.Entity<Escrow>()
+            .HasOne(e => e.Order)
+            .WithOne(o => o.Escrow)
+            .HasForeignKey<Escrow>(e => e.OrderId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 
